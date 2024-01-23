@@ -24,10 +24,10 @@
                         <td>{{item.titulo}}</td>
                         <td>{{item.categoria}}</td>
                         <td><i class="fa fa-eye" aria-hidden="true"></i>{{item.visitas}}</td>
-                        <td><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{item.megusta}}</td>
-                        <td><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{item.nomegusta}}</td>
+                        <td><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{item.meGusta}}</td>
+                        <td><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{item.noMeGusta}}</td>
                         <td>
-                            <a class="btn btn-primary me-2 btn-sm" routerLink="/video/{{item.id}}"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-primary me-2 btn-sm" routerLink="/video/viewVideo/{{item.id}}"><i class="fas fa-eye"></i></a>
                             <a class="btn btn-danger btn-sm" (click)="deleteVideo(item.id)"><i class="fas fa-trash"></i></a>
                         </td>
                 </tr>

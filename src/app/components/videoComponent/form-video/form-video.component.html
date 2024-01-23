@@ -1,1 +1,86 @@
-<p>form-video works!</p>
+<h1 class="mt-4">Alta Nuevo Video</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active fst-italic">Listados</li>
+    <li class="breadcrumb-item active fst-italic">Videos</li>
+    <li class="breadcrumb-item ">Alta</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-building me-1"></i>
+        Información Nuevo Video
+    </div>
+    <div class="card-body shadow">
+        <form #videoForm="ngForm" (ngSubmit)="formProcedure(videoForm)">
+            <div class="form-row">
+                <div class="form-group col-2 me-1">
+                    <label for="input-url-video" [ngClass]="{'text-danger':urlVideo.invalid && (urlVideo.dirty || urlVideo.touched)}">URL</label>
+                    <input 
+                        class="form-control" 
+                        name="input-url-video" 
+                        id="input-url-video" 
+                        [(ngModel)]="videoFormInput.url" 
+                        #urlVideo="ngModel" 
+                        required
+                        [ngClass]="{'border-danger-subtle bg-danger-subtle':urlVideo.invalid && (urlVideo.dirty || urlVideo.touched)}"
+                    >
+                    <div *ngIf="urlVideo.invalid && (urlVideo.dirty || urlVideo.touched)" class="alert alert-danger small ">
+                        <div *ngIf="urlVideo.errors?.['required']">URL requerida.</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label for="input-titulo-video" [ngClass]="{'text-danger':titleVideo.invalid && (titleVideo.dirty || titleVideo.touched)}">Titulo</label>
+                    <input 
+                        class="form-control" 
+                        name="input-titulo-video" 
+                        id="input-titulo-video" 
+                        [(ngModel)]="videoFormInput.titulo" 
+                        required
+                        #titleVideo="ngModel"
+                        [ngClass]="{'border-danger-subtle bg-danger-subtle':titleVideo.invalid && (titleVideo.dirty || titleVideo.touched)}"
+                    >
+                    <div *ngIf="titleVideo.invalid && (titleVideo.dirty || titleVideo.touched)" class="alert alert-danger small">
+                        <div *ngIf="titleVideo.errors?.['required']">Titulo requerido.</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-5">
+                    <label for="input-categoria-video" [ngClass]="{'text-danger':categoriaVideo.invalid && (categoriaVideo.dirty || categoriaVideo.touched)}">Categoría</label>
+                    <input  
+                        class="form-control" 
+                        name="input-categoria-video" 
+                        id="input-categoria-video" 
+                        [(ngModel)]="videoFormInput.titulo" 
+                        required
+                        #categoriaVideo="ngModel"
+                        [ngClass]="{'border-danger-subtle bg-danger-subtle':categoriaVideo.invalid && (categoriaVideo.dirty || categoriaVideo.touched)}"
+                    >
+                    <div *ngIf="categoriaVideo.invalid && (categoriaVideo.dirty || categoriaVideo.touched)" class="alert alert-danger small">
+                        <div *ngIf="categoriaVideo.errors?.['required']">Categoría requerida.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-9 me-1">
+                    <label for="input-desc" [ngClass]="{'text-danger':description.invalid && (description.dirty || description.touched)}">Descripción</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        name="input-desc" 
+                        id="input-desc" 
+                        [(ngModel)]="videoFormInput.descripcion" 
+                        #description="ngModel" 
+                        required
+                        [ngClass]="{'border-danger-subtle bg-danger-subtle':description.invalid && (description.dirty || description.touched)}"
+                    >
+                    <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger small">
+                        <div *ngIf="description.errors?.['required']">Descripción requerida.</div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success fw-bold me-2" ><i class="fa fa-plus" aria-hidden="true"></i> Confirmar</button>
+            <button type="reset" class="btn btn-secondary  fw-bold me-2" ><i class="fa fa-arrow-rotate-left" aria-hidden="true"></i> Reiniciar</button>
+            <button type="reset" routerLink="/video" class="btn btn-danger fw-bold"><i class="fa fa-times" aria-hidden="true"></i> Cancelar</button>
+        </form>
+    </div>
+    
+</div>

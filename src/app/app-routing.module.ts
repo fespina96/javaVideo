@@ -13,7 +13,7 @@ const routes: Routes = [
         path: 'video',
         children: [
             { path: '', component: ListVideoComponent },
-            { path: ':id', component: DetailVideoComponent },
+            { path: 'viewVideo/:id', component: DetailVideoComponent },
             { path: 'formVideo', component: FormVideoComponent },
         ],
     },

@@ -5,6 +5,6 @@ export interface Video {
     titulo:string,
     descripcion:string,
     visitas:number,
-    megusta:number,
-    nomegusta:number
+    meGusta:number,
+    noMeGusta:number
 }

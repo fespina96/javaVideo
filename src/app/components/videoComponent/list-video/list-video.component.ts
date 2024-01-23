@@ -23,7 +23,8 @@ export class ListVideoComponent implements OnInit{
 
     deleteVideo(id:number){
         this.videoService.deleteVideo(id).subscribe(
-            (res) => console.log(res)
+            (res) => {console.log(res)},
+            (complete) => {this.cargarListado()}
         )
     }
 }
